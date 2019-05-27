@@ -18,31 +18,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dal.entities.iTache;
-import com.example.demo.dal.services.iTacheService;
+import com.example.demo.dal.entities.Role;
+import com.example.demo.dal.entities.User;
+import com.example.demo.dal.services.RoleService;
+import com.example.demo.dal.services.UserService;
 
 @RestController
-@RequestMapping("/itaches")
+@RequestMapping("/role")
 @CrossOrigin(origins="http://localhost:4200")
-public class iTacheController {
+public class RoleController {
 	@Autowired
-	private iTacheService service;
+	private RoleService service;
 	@SuppressWarnings("unchecked")
 	@GetMapping("")
-	public ResponseEntity<List<iTache>> getAll(){
-		return new ResponseEntity<List<iTache>>((List<iTache>) service.getAll(), HttpStatus.OK);
+	public ResponseEntity<List<Role>> getAll(){
+		return new ResponseEntity<List<Role>>((List<Role>) service.getAll(), HttpStatus.OK);
 	}
 	@GetMapping("/{id}")
-	public ResponseEntity<Optional<iTache>> getById(@PathVariable("id") long id){
-		return new ResponseEntity<Optional<iTache>>(service.getById(id),HttpStatus.FOUND);
+	public ResponseEntity<Optional<Role>> getById(@PathVariable("id") long id){
+		return new ResponseEntity<Optional<Role>>(service.getById(id),HttpStatus.FOUND);
 	}
 	@PostMapping("")
-	public ResponseEntity<iTache> create(@Valid @RequestBody iTache c){
-		return new ResponseEntity<iTache>(service.create(c), HttpStatus.CREATED);
+	public ResponseEntity<Role> create(@Valid @RequestBody Role c){
+		return new ResponseEntity<Role>(service.create(c), HttpStatus.CREATED);
 	}
 	@PutMapping("/{id}")
-	public ResponseEntity<iTache> update(@Valid @RequestBody iTache c, @PathVariable("id") long id) throws Exception{
-		return new ResponseEntity<iTache>(service.update(c, id),HttpStatus.OK);
+	public ResponseEntity<Role> update(@Valid @RequestBody Role c, @PathVariable("id") long id) throws Exception{
+		return new ResponseEntity<Role>(service.update(c, id),HttpStatus.OK);
 	}
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Boolean> delete(@PathVariable("id") long id){

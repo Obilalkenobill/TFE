@@ -23,15 +23,15 @@ public class Adresse {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
-@Column
+@Column(nullable=true)
 private String rue;
-@Column
+@Column(nullable=true)
 private String numeroEtBoite;
-@Column
+@Column(nullable=true)
 private String codePostale;
-@Column
+@Column(nullable=true)
 private String localite;
-@Column
+@Column(nullable=true)
 private String Pays;
 @Column (name ="patient_id", nullable=true)
 @OneToMany (fetch=FetchType.LAZY,cascade = CascadeType.REMOVE)

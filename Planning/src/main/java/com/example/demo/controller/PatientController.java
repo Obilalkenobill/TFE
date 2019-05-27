@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import com.example.demo.dal.services.PatientService;
 
 @RestController
 @RequestMapping("/patients")
+@CrossOrigin(origins="http://localhost:4200")
 public class PatientController {
 	@Autowired
 	private PatientService service;
@@ -35,6 +37,7 @@ public class PatientController {
 	public ResponseEntity<Optional<Patient>> getById(@PathVariable("id") long id){
 		return new ResponseEntity<Optional<Patient>>(service.getById(id),HttpStatus.FOUND);
 	}
+	@CrossOrigin("*")
 	@PostMapping("")
 	public ResponseEntity<Patient> create(@Valid @RequestBody Patient c){
 		return new ResponseEntity<Patient>(service.create(c), HttpStatus.CREATED);

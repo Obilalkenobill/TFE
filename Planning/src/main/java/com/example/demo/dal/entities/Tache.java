@@ -21,13 +21,13 @@ public class Tache {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@JoinColumn(name="jour_id")
+	@JoinColumn(name="jour_id", nullable=true)
 	@ManyToOne
 	private Jour jour;
-	@JoinColumn (name="heure_id")
+	@JoinColumn (name="heure_id", nullable=true)
 	@ManyToOne
 	private Heure heure;
-	@JoinColumn (name="itache_id")
+	@JoinColumn (name="itache_id", nullable=true)
 	@ManyToOne
 	private iTache itache;
 	@JoinColumn(name="infirmier_id",nullable=true)
