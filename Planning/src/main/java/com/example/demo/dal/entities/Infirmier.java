@@ -3,10 +3,10 @@ package com.example.demo.dal.entities;
 
 import java.util.List;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,8 +39,8 @@ public class Infirmier {
 	@OneToMany
 	@JsonIgnoreProperties(value= {"infirmier","patients"})
 	private List<Tache> taches;
-	@Column(name="patient_id",nullable=true)
-	@OneToMany
+	@Column
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JsonIgnoreProperties(value= {"infirmier","taches"})
 	private List<Patient> patients;
 	@OneToOne

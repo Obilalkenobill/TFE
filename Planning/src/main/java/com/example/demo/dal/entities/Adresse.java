@@ -34,11 +34,11 @@ private String localite;
 @Column(nullable=true)
 private String Pays;
 @Column (name ="patient_id", nullable=true)
-@OneToMany (fetch=FetchType.LAZY,cascade = CascadeType.REMOVE)
+@OneToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 @JsonIgnoreProperties(value= {"adresse","dateNaiss","taches","tel","infirmier"})
 private List<Patient> patients;
 @JoinColumn (name ="infirmier_id", nullable=true)
-@OneToOne (fetch=FetchType.LAZY,cascade = CascadeType.REMOVE)
+@OneToOne (fetch = FetchType.EAGER)
 @JsonIgnoreProperties(value= {"adresse","dateNaiss","taches","tel","patients"})
 private Infirmier infirmier;
 }

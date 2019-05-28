@@ -4,8 +4,10 @@ package com.example.demo.dal.entities;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,16 +39,18 @@ public class Patient {
 	@Column(nullable=true)
 	private String numChbre;
 	@Column(name="tache_id",nullable=true,unique=true)
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
 	@JsonIgnoreProperties(value= {"patients","infirmier"})
 	private List<Tache> taches;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
 	@JoinColumn(name="infirmier_id",nullable=true)
 	@JsonIgnoreProperties(value= {"patients","taches","adresse"})
 	private Infirmier infirmier;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
 	@JoinColumn(name="adresse_id",nullable=true)
 	@JsonIgnoreProperties(value= {"patients","infirmier"})
 	private Adresse adresse;
+	@Column(nullable=true)
+	private Boolean isvalid;
 
 }

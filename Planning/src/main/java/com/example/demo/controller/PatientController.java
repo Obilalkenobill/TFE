@@ -37,7 +37,6 @@ public class PatientController {
 	public ResponseEntity<Optional<Patient>> getById(@PathVariable("id") long id){
 		return new ResponseEntity<Optional<Patient>>(service.getById(id),HttpStatus.FOUND);
 	}
-	@CrossOrigin("*")
 	@PostMapping("")
 	public ResponseEntity<Patient> create(@Valid @RequestBody Patient c){
 		return new ResponseEntity<Patient>(service.create(c), HttpStatus.CREATED);
@@ -47,7 +46,7 @@ public class PatientController {
 		return new ResponseEntity<Patient>(service.update(c, id),HttpStatus.OK);
 	}
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Boolean> delete(@PathVariable("id") long id){
+	public ResponseEntity<Boolean> delete(@PathVariable("id") long id) throws Exception{
 		return new ResponseEntity<Boolean>(service.delete(id), HttpStatus.OK);
 	}
 }

@@ -19,30 +19,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dal.entities.Adresse;
 import com.example.demo.dal.entities.Patient;
+import com.example.demo.dal.services.AdresseService;
 import com.example.demo.dal.services.PatientService;
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
 @RequestMapping("/adresses")
 public class AdresseController {
 	@Autowired
-	private PatientService service;
+	private AdresseService service;
 	@SuppressWarnings("unchecked")
 	@GetMapping("")
-	public ResponseEntity<List<Patient>> getAll(){
-		return new ResponseEntity<List<Patient>>((List<Patient>) service.getAll(), HttpStatus.OK);
+	public ResponseEntity<List<Adresse>> getAll(){
+		return new ResponseEntity<List<Adresse>>( (List<Adresse>) service.getAll(), HttpStatus.OK);
 	}
 	@GetMapping("/{id}")
-	public ResponseEntity<Optional<Patient>> getById(@PathVariable("id") long id){
-		return new ResponseEntity<Optional<Patient>>(service.getById(id),HttpStatus.FOUND);
+	public ResponseEntity<Optional<Adresse>> getById(@PathVariable("id") long id){
+		return new ResponseEntity<Optional<Adresse>>(service.getById(id),HttpStatus.FOUND);
 	}
 	@PostMapping("")
-	public ResponseEntity<Patient> create(@Valid @RequestBody Patient c){
-		return new ResponseEntity<Patient>(service.create(c), HttpStatus.CREATED);
+	public ResponseEntity<Adresse> create(@Valid @RequestBody Adresse c){
+		return new ResponseEntity<Adresse>(service.create(c), HttpStatus.CREATED);
 	}
 	@PutMapping("/{id}")
-	public ResponseEntity<Patient> update(@Valid @RequestBody Patient c, @PathVariable("id") long id) throws Exception{
-		return new ResponseEntity<Patient>(service.update(c, id),HttpStatus.OK);
+	public ResponseEntity<Adresse> update(@Valid @RequestBody Adresse c, @PathVariable("id") long id) throws Exception{
+		return new ResponseEntity<Adresse>(service.update(c, id),HttpStatus.OK);
 	}
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Boolean> delete(@PathVariable("id") long id){

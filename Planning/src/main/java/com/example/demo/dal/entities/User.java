@@ -18,6 +18,7 @@ import javax.persistence.ManyToMany;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import lombok.Data;
 
@@ -42,8 +43,16 @@ public class User implements UserDetails{
 	}
 	@Override
 	public String getPassword() {
-		return password;
+		/*BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		return passwordEncoder.encode(password);*/
+return password;
 	}
+	
+	/*public void setPassword(String password) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String hashedPassword = passwordEncoder.encode(password);
+		this.password=hashedPassword;
+	}*/
 	@Override
 	public String getUsername() {
 		return username;

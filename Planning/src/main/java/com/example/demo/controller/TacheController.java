@@ -47,4 +47,8 @@ public class TacheController {
 	public ResponseEntity<Boolean> delete(@PathVariable("id") long id){
 		return new ResponseEntity<Boolean>(service.delete(id), HttpStatus.OK);
 	}
+	@PutMapping("/deletePatinTask/{id}")
+	public ResponseEntity<Tache> removePatinTask(@Valid @RequestBody long idPat,@PathVariable("id") long idTask) throws Exception{
+		return new ResponseEntity<Tache>(service.removePatInTask(idTask, idPat),HttpStatus.OK);
+	}
 }

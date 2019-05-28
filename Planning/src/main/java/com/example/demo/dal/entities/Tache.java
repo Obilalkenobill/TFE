@@ -3,8 +3,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,14 +30,14 @@ public class Tache {
 	@ManyToOne
 	private Heure heure;
 	@JoinColumn (name="itache_id", nullable=true)
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
 	private iTache itache;
 	@JoinColumn(name="infirmier_id",nullable=true)
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
 	@JsonIgnoreProperties(value= {"adresse","taches","patients","dateNaiss"})
 	private Infirmier infirmier;
 	@Column(name="patient_id",nullable=true,unique=true)
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
 	@JsonIgnoreProperties(value={"taches","adresse","infirmier","dateNaiss"})	
 	private List<Patient> patients;
 

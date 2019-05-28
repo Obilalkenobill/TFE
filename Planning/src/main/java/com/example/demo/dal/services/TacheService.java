@@ -52,9 +52,20 @@ private TacheRepository repo;
 				}	
 			}
 		}
-		list1.addAll(list2);
+		if(list2!=null) {list1.addAll(list2);}
 		if(list2!=null) {t.setPatients(list1);}
 		
+		return repo.save(t);
+	}
+	public Tache removePatInTask(Long idTask, Long idPat) throws Exception {
+		// TODO Auto-generated method stub
+		Tache t=getById(idTask).orElseThrow(()->new Exception("Tache non trouvée"));
+		List<Patient> list1= t.getPatients();
+			for (int i = 0; i < list1.size(); i++) {
+			
+					if(list1.get(i).getId()==idPat){list1.remove(list1.get(i));break;}
+			}
+			t.setPatients(list1);
 		return repo.save(t);
 	}
 
