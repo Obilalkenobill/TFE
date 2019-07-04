@@ -1,5 +1,6 @@
 package com.example.demo.dal.entities;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,4 +18,16 @@ public class Heure {
 private Long id;
 @Column(nullable=true, unique =true)
 private String nomHeure;
+public Long getId() {
+	return id;
+}
+public void setId(Long id) {
+	this.id = id;
+}
+public String getNomHeure() {
+	return nomHeure;
+}
+public void setNomHeure(String nomHeure) {
+	this.nomHeure = nomHeure;
+}
 }

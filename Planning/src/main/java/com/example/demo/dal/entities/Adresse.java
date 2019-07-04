@@ -1,5 +1,7 @@
 package com.example.demo.dal.entities;
 
+
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,6 +25,54 @@ public class Adresse {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
+public Long getId() {
+	return id;
+}
+public void setId(Long id) {
+	this.id = id;
+}
+public String getRue() {
+	return rue;
+}
+public void setRue(String rue) {
+	this.rue = rue;
+}
+public String getNumeroEtBoite() {
+	return numeroEtBoite;
+}
+public void setNumeroEtBoite(String numeroEtBoite) {
+	this.numeroEtBoite = numeroEtBoite;
+}
+public String getCodePostale() {
+	return codePostale;
+}
+public void setCodePostale(String codePostale) {
+	this.codePostale = codePostale;
+}
+public String getLocalite() {
+	return localite;
+}
+public void setLocalite(String localite) {
+	this.localite = localite;
+}
+public String getPays() {
+	return Pays;
+}
+public void setPays(String pays) {
+	Pays = pays;
+}
+public List<Patient> getPatients() {
+	return patients;
+}
+public void setPatients(List<Patient> patients) {
+	this.patients = patients;
+}
+public Infirmier getInfirmier() {
+	return infirmier;
+}
+public void setInfirmier(Infirmier infirmier) {
+	this.infirmier = infirmier;
+}
 @Column(nullable=true)
 private String rue;
 @Column(nullable=true)

@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+
+
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +25,7 @@ import com.example.demo.dal.services.iTacheService;
 
 @RestController
 @RequestMapping("/itaches")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins= {"https://planninghospt.herokuapp.com","http://localhost:4200"})
 public class iTacheController {
 	@Autowired
 	private iTacheService service;

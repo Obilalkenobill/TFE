@@ -1,4 +1,6 @@
 package com.example.demo.dal.entities;
+
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,5 +42,41 @@ public class Tache {
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
 	@JsonIgnoreProperties(value={"taches","adresse","infirmier","dateNaiss"})	
 	private List<Patient> patients;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Jour getJour() {
+		return jour;
+	}
+	public void setJour(Jour jour) {
+		this.jour = jour;
+	}
+	public Heure getHeure() {
+		return heure;
+	}
+	public void setHeure(Heure heure) {
+		this.heure = heure;
+	}
+	public iTache getItache() {
+		return itache;
+	}
+	public void setItache(iTache itache) {
+		this.itache = itache;
+	}
+	public Infirmier getInfirmier() {
+		return infirmier;
+	}
+	public void setInfirmier(Infirmier infirmier) {
+		this.infirmier = infirmier;
+	}
+	public List<Patient> getPatients() {
+		return patients;
+	}
+	public void setPatients(List<Patient> patients) {
+		this.patients = patients;
+	}
 
 }

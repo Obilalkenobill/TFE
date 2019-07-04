@@ -1,5 +1,7 @@
 package com.example.demo.dal.services;
 
+
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,7 @@ private InfirmierRepository repo;
 		if(entity.getTel()!=null) {i.setAdresse(entity.getAdresse());}
 		if(entity.getPatients()!=null) {i.setPatients(entity.getPatients());}
 		if(entity.getTaches()!=null) {i.setTaches(entity.getTaches());}
+		if(entity.getIsvalid()!=null) {i.setIsvalid(entity.getIsvalid());}
 		return repo.save(i);
 	}
 

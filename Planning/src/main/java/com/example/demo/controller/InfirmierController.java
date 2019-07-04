@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +23,7 @@ import com.example.demo.dal.entities.Infirmier;
 import com.example.demo.dal.services.InfirmierService;
 @RestController
 @RequestMapping("/infirmier")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins= {"https://planninghospt.herokuapp.com","http://localhost:4200"})
 public class InfirmierController {
 	@Autowired
 	private InfirmierService service;

@@ -1,6 +1,8 @@
 package com.example.demo.dal.entities;
 
 
+
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -30,6 +32,54 @@ public class Infirmier {
 	private String nom;
 	@Column
 	private String prenom;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	public String getDateNaiss() {
+		return dateNaiss;
+	}
+	public void setDateNaiss(String dateNaiss) {
+		this.dateNaiss = dateNaiss;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public List<Tache> getTaches() {
+		return taches;
+	}
+	public void setTaches(List<Tache> taches) {
+		this.taches = taches;
+	}
+	public List<Patient> getPatients() {
+		return patients;
+	}
+	public void setPatients(List<Patient> patients) {
+		this.patients = patients;
+	}
+	public Adresse getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 	@Column
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private String dateNaiss;
@@ -47,4 +97,12 @@ public class Infirmier {
 	@JoinColumn(name="adresse_id",nullable = true)
 	@JsonIgnoreProperties(value= {"infirmier","patients"})
 	private Adresse adresse;
+	@Column(nullable=true)
+	private Boolean isvalid;
+	public Boolean getIsvalid() {
+		return isvalid;
+	}
+	public void setIsvalid(Boolean isvalid) {
+		this.isvalid = isvalid;
+	}
 }

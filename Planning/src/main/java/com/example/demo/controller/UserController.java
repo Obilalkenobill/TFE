@@ -25,7 +25,7 @@ import com.example.demo.dal.services.HeureService;
 import com.example.demo.dal.services.UserService;
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins= {"https://planninghospt.herokuapp.com","http://localhost:4200"})
 public class UserController {
 	@Autowired
 	private UserService service;

@@ -1,6 +1,8 @@
 package com.example.demo.dal.entities;
 
 
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,4 +20,16 @@ public class Jour {
 private Long id;
 @Column(nullable=false, unique =true)
 private String nomJour;
+public Long getId() {
+	return id;
+}
+public void setId(Long id) {
+	this.id = id;
+}
+public String getNomJour() {
+	return nomJour;
+}
+public void setNomJour(String nomJour) {
+	this.nomJour = nomJour;
+}
 }
